@@ -1,16 +1,16 @@
-var express = require('express')
-var cors = require('cors')
-var nm = require('nodemailer')
-var app = express()
+var express = require("express");
+var cors = require("cors");
+//var nm = require('nodemailer')
+var app = express();
 
-var createEventRouter = require('./api/routes/createEventRouter')
-var requestsRouter = require('./api/routes/requestsRouter')
-var findEventRouter = require('./api/routes/findEventRouter')
-var userMngRouter = require('./api/routes/UserMngRouter')
-var insertFeedback = require('./api/routes/feedbackRouter')
+var createEventRouter = require("./api/routes/createEventRouter");
+var requestsRouter = require("./api/routes/requestsRouter");
+var findEventRouter = require("./api/routes/findEventRouter");
+var userMngRouter = require("./api/routes/UserMngRouter");
+var insertFeedback = require("./api/routes/feedbackRouter");
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 // var corsOptions = {
 
@@ -20,22 +20,21 @@ app.use(cors())
 //cors(corsOptions),
 
 //All requests related to CreateEvent screen goes here
-app.use("/createevent", createEventRouter)
+app.use("/createevent", createEventRouter);
 
 //All requests related to FindEvent screen goes here
-app.use("/findevents", findEventRouter)
+app.use("/findevents", findEventRouter);
 
 // app.use("/bookingdetails", requestsRouter)
 
 //All requests related to Feedback screen goes here
-app.use("/insertFeedback", insertFeedback)
-
+app.use("/insertFeedback", insertFeedback);
 
 // app.use("/requestsreceived",requestsRouter)
 // app.use("/usermng",userMngRouter)
-app.use("/requestsreceived", requestsRouter)
-app.use("/usermng", userMngRouter)
-app.use("/verifyid", userMngRouter)
+app.use("/requestsreceived", requestsRouter);
+app.use("/usermng", userMngRouter);
+app.use("/verifyid", userMngRouter);
 
 const port = process.env.PORT || 8080;
-app.listen(port, () => console.log('listening on port....' + port));
+app.listen(port, () => console.log("listening on port...." + port));
