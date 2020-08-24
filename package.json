@@ -24,7 +24,7 @@
     "mysql2": "^2.1.0",
     "ssh2": "^0.8.9",
     "jsonwebtoken": "^8.5.1",
-    "nodemailer-smtp-transport": "^6.4.11"
+    "nodemailer-smtp-transport": "^2.7.4"
   },
   "devDependencies": {
     "jsonwebtoken": "^8.5.1",
