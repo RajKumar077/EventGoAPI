@@ -45,11 +45,11 @@ var db566 = new Promise((resolve, reject) => {
     // });
 
     var db = mysql566.createConnection({
-        host: 'db-5308.cs.dal.ca',
-        user: "CSCI5308_11_PRODUCTION_USER",
-        password: 'Dj4auPAHQC', //TODO: Password in env or separate file
-        port: 3306,
-        database: 'CSCI5308_11_PRODUCTION'
+        host: '',
+        user: "",
+        password: '', //TODO: Password in env or separate file
+        port: ,
+        database: ''
     });
     // send connection back in variable depending on success or not
     db.connect(function (err) {
