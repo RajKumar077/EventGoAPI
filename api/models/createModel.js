@@ -3,7 +3,7 @@
 var connection = require("./DatabaseConn");
 const { NULL } = require("mysql2/lib/constants/types");
 
-var Obj = function () {};
+var Obj = function () { };
 
 //GET all the events created by given userId
 Obj.getUserEventsHistory = (userId, result) => {
@@ -24,7 +24,15 @@ Obj.getUserEventsHistory = (userId, result) => {
 
 Obj.gettest = (userId, result) => {
   connection.db566.then(function (connection) {
-    result(null, "test");
+    let sql566 = "SELECT * FROM CSCI5308_11_PRODUCTION.coaches";
+    let query566 = connection.query(sql566, (error566, result566) => {
+      if (error566) {
+        console.log(error566);
+      } else {
+        //console.log(result566[0]);
+        result(null, result566);
+      }
+    });
   })
 };
 
@@ -45,11 +53,11 @@ Obj.postUserEvent = (userId, event, result) => {
       event["newItem"].estPrice,
       event["newItem"].description,
       event["newItem"].imageurls.length > 0 &&
-      event["newItem"].imageurls[0] != undefined
+        event["newItem"].imageurls[0] != undefined
         ? event["newItem"].imageurls[0]
         : null,
       event["newItem"].imageurls.length > 1 &&
-      event["newItem"].imageurls[1] != undefined
+        event["newItem"].imageurls[1] != undefined
         ? event["newItem"].imageurls[1]
         : null,
       new Date(),
@@ -78,12 +86,12 @@ Obj.postUserEvent = (userId, event, result) => {
 Obj.updateUserEvent = (userId, event, result) => {
   let url1 =
     event["updatedItem"].imageurls.length > 0 &&
-    event["updatedItem"].imageurls[0] != undefined
+      event["updatedItem"].imageurls[0] != undefined
       ? "'" + event["updatedItem"].imageurls[0] + "'"
       : null;
   let url2 =
     event["updatedItem"].imageurls.length > 1 &&
-    event["updatedItem"].imageurls[1] != undefined
+      event["updatedItem"].imageurls[1] != undefined
       ? "'" + event["updatedItem"].imageurls[1] + "'"
       : null;
   var sql =

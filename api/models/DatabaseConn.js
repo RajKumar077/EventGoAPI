@@ -36,14 +36,21 @@ var ssh566 = new Client();
 
 var db566 = new Promise((resolve, reject) => {
 
-    var db = mysql566.createConnection({
-        host: 'rideshare.clk7cf9g9ru4.us-east-1.rds.amazonaws.com',
-        user: "admin",
-        password: 'Test1234', //TODO: Password in env or separate file
-        port: 3306,
-        database: 'rideshareDB'
-    });
+    // var db = mysql566.createConnection({
+    //     host: 'rideshare.clk7cf9g9ru4.us-east-1.rds.amazonaws.com',
+    //     user: "admin",
+    //     password: 'Test1234', //TODO: Password in env or separate file
+    //     port: 3306,
+    //     database: 'rideshareDB'
+    // });
 
+    var db = mysql566.createConnection({
+        host: 'db-5308.cs.dal.ca',
+        user: "CSCI5308_11_PRODUCTION_USER",
+        password: 'Dj4auPAHQC', //TODO: Password in env or separate file
+        port: 3306,
+        database: 'CSCI5308_11_PRODUCTION'
+    });
     // send connection back in variable depending on success or not
     db.connect(function (err) {
         if (err) {
