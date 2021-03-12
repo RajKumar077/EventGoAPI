@@ -31,7 +31,7 @@ var ssh566 = new Client();
 //     // });
 
 // }).catch((err) => {
-//     if (err) throw "lollll";
+//     if (err) throw "lolllll";
 // });
 
 var db566 = new Promise((resolve, reject) => {
