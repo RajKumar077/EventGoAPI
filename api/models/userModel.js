@@ -1,7 +1,7 @@
 var connection = require("./DatabaseConn");
 const { NULL } = require("mysql2/lib/constants/types");
 const bcrypt = require("bcryptjs");
-var Obj = function () {};
+var Obj = function () { };
 
 // @route GET api /usermng/getusers
 // @desc get users
@@ -20,7 +20,7 @@ Obj._getUserDetails = (res) => {
   });
 };
 
-//Author - Jigar Makwana B00842568
+//
 // @route GET api /usermng/getSpecificUser
 // @desc get specific user
 // @access Public
@@ -51,10 +51,6 @@ Obj._getSpecificUser = (req, res) => {
   });
 };
 
-//Author - Jigar Makwana B00842568
-// @route GET api /usermng/login
-// @desc get users
-// @access Public
 //POST Route to login the user
 Obj._loginUser = (req, res) => {
   console.log(req);
@@ -89,7 +85,7 @@ Obj._loginUser = (req, res) => {
   });
 };
 
-//Author - Jigar Makwana B00842568
+//
 // @route POST api /usermng/registerUser
 // @desc Register user
 // @access Public
@@ -116,7 +112,7 @@ Obj._registerUser = (req, res) => {
             userName: req.user.username,
             email: req.user.email,
             password: hash,
-            dob: req.user.dob,
+            category: req.user.category,
             gender: req.user.gender,
           };
           connection.query(sqlInsert, values, function (err, result) {
@@ -126,8 +122,8 @@ Obj._registerUser = (req, res) => {
             } else {
               console.log(
                 "_registerUser: User " +
-                  req.user.email +
-                  " added in users table"
+                req.user.email +
+                " added in users table"
               );
               console.log(result);
               res(null, result);
@@ -137,8 +133,8 @@ Obj._registerUser = (req, res) => {
       } else {
         console.log(
           "_registerUser: Email id " +
-            req.user.email +
-            " already exists in our database"
+          req.user.email +
+          " already exists in our database"
         );
         err = "Email id " + req.user.email + " already exists in our database";
         // res(err);
@@ -148,29 +144,11 @@ Obj._registerUser = (req, res) => {
   });
 };
 
-//Author - Jigar Makwana B00842568
+//
 // @route PUT api /usermng/updateUser/:userId
 // @desc Update user details
 // @access Public
 //PUT Route to update a user record in FCS DB
-Obj._updateUserDetail2 = (userId, req, result) => {
-  values = [req.userName, req.email, req.password, req.dob, req.gender];
-  // console.log(req.userName, req.email, req.password, req.dob, req.gender)
-  var sqlUpdate =
-    "UPDATE users SET userName=? , email=? , password=? , dob=? , gender=? WHERE userId= " +
-    userId;
-  connection.db566.then(function (connection) {
-    connection.query(sqlUpdate, values, function (err, succ) {
-      if (err) {
-        console.log(err);
-        result(err, null);
-      } else {
-        result(null, true);
-      }
-    });
-  });
-};
-
 Obj._updateUserDetail = (userId, req, result) => {
   values = [req.userName, req.email, req.password, req.category, req.gender];
   // console.log(req.userName, req.email, req.password, req.dob, req.gender)
@@ -189,7 +167,7 @@ Obj._updateUserDetail = (userId, req, result) => {
   });
 };
 
-// Author Nishant Amoli - B00835717
+//
 
 Obj._updateUserProfile = (userId, req, result) => {
   console.log("Got in!");
@@ -210,7 +188,7 @@ Obj._updateUserProfile = (userId, req, result) => {
   });
 };
 
-//Author - Jigar Makwana B00842568
+//
 // @route DELETE api /usermng/deleteUser/:userId
 // @desc Delete user
 // @access Public
@@ -233,7 +211,7 @@ Obj._deleteUser = (userId, result) => {
   });
 };
 
-// Author of below function - Breej B00843525
+// Author of below function - //
 //used to update dataase with the image URL of ID that has been uploaded to fire base
 Obj._putVerifyId = (userId, url1, result) => {
   console.log(userId);
