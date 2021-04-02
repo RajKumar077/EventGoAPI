@@ -153,11 +153,29 @@ Obj._registerUser = (req, res) => {
 // @desc Update user details
 // @access Public
 //PUT Route to update a user record in FCS DB
-Obj._updateUserDetail = (userId, req, result) => {
+Obj._updateUserDetail2 = (userId, req, result) => {
   values = [req.userName, req.email, req.password, req.dob, req.gender];
   // console.log(req.userName, req.email, req.password, req.dob, req.gender)
   var sqlUpdate =
     "UPDATE users SET userName=? , email=? , password=? , dob=? , gender=? WHERE userId= " +
+    userId;
+  connection.db566.then(function (connection) {
+    connection.query(sqlUpdate, values, function (err, succ) {
+      if (err) {
+        console.log(err);
+        result(err, null);
+      } else {
+        result(null, true);
+      }
+    });
+  });
+};
+
+Obj._updateUserDetail = (userId, req, result) => {
+  values = [req.userName, req.email, req.password, req.category, req.gender];
+  // console.log(req.userName, req.email, req.password, req.dob, req.gender)
+  var sqlUpdate =
+    "UPDATE users SET userName=? , email=? , password=? , category=? , gender=? WHERE userId= " +
     userId;
   connection.db566.then(function (connection) {
     connection.query(sqlUpdate, values, function (err, succ) {
