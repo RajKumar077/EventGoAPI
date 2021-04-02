@@ -1,4 +1,4 @@
-//Author - Jigar Makwana B00842568
+
 const UserMngObjModel = require("../models/userModel");
 const emailObj = require("./emailController");
 
