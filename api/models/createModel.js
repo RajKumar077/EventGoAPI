@@ -24,7 +24,7 @@ Obj.getUserEventsHistory = (userId, result) => {
 
 Obj.gettest = (userId, result) => {
   connection.db566.then(function (connection) {
-    let sql566 = "SELECT * FROM CSCI5308_11_PRODUCTION.coaches";
+    let sql566 = "SELECT * FROM ngo.users";
     let query566 = connection.query(sql566, (error566, result566) => {
       if (error566) {
         console.log(error566);
