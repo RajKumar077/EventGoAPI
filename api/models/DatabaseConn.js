@@ -1,4 +1,4 @@
-//@Author - RajKumar B00849566
+//@Author: - RajKumar B00849566
 
 const mysql566 = require('mysql2');
 var Client = require('ssh2').Client;
