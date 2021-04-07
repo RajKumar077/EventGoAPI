@@ -24,7 +24,7 @@ var ssh566 = new Client();
 
 //     //         });
 //     // }).connect({
-//     //     host: 'bluenose.cs.dal.ca',
+//     //     host: 'bluenose.cs.dal.ca',,
 //     //     port: 22,
 //     //     user: 'gangi',
 //     //     password: 'B00849566'
