@@ -45,9 +45,9 @@ var db566 = new Promise((resolve, reject) => {
     // });
 
     var db = mysql566.createConnection({
-        host: 'csci5193.cuascct9j8c0.us-east-1.rds.amazonaws.com',
+        host: 'database-1.cvgfxjpxa9xh.us-east-1.rds.amazonaws.com',
         user: "admin",
-        password: 'QN2rNCb34iPuWQyHvvty', //TODO: Password in env or separate file
+        password: 'FKU6IQCORuQXHQYklcKh', //TODO: Password in env or separate file
         port: 3306,
         database: 'ngo'
     });
